@@ -24,15 +24,15 @@ REST API do processo seletivo na Xbrain, utilizando Maven, H2 e RabbitMQ.
         \:|   |                  \::/    /                \::/    /                             
          \|___|                   \/____/                  \/____/                       
 ```
-         
-         
-         
-         
-    
-    
-    
-    
-    
-    
-    
-    
+*Gerar um pedido:
+```
+ _________________________
+|         pedido          |
+|.........................|
+|-id:?                    |
+|-valor_total:long        |
+|-endereço_entrega:String |
+\_________________________/
+```
+*Gravar o pedido no banco e enviar o pedido para a uma fila de mensagem de entregas, usando **RabbitMQ**
+*Criar um serviço para ler as entregas da fila e salvar na tabela Entrega (endereço de entrega e id do pedido)
