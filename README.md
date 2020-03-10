@@ -29,8 +29,9 @@ REST API do processo seletivo na Xbrain, utilizando Maven, H2 e RabbitMQ.
  _________________________
 |         pedido          |
 |.........................|
-|-id:?                    |
-|-valor_total:long        |
+|-cod_cliente:String      |
+|-cod_produtos:Strin      |
+|-valor_total:Long        |
 |-endereço_entrega:String |
 \_________________________/
 ```
