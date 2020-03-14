@@ -1,12 +1,13 @@
-package com.pedido.rest;
+package com.pedido.restApi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProcessoSeletivoApplication {
+public class RestApiApplication {
+
 	public static void main(String[] args) {
-    	SpringApplication.run(ProcessoSeletivoApplication.class, args);
+		SpringApplication.run(RestApiApplication.class, args);
 	}
 
 }

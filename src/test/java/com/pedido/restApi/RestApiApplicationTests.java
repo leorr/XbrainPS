@@ -1,10 +1,10 @@
-package com.pedido.rest;
+package com.pedido.restApi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProcessoSeletivoApplicationTests {
+class RestApiApplicationTests {
 
 	@Test
 	void contextLoads() {
