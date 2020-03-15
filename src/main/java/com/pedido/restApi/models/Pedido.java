@@ -1,7 +1,6 @@
 package com.pedido.restApi.models;
 
-import java.io.Serializable;
-
+import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,36 +9,47 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="PEDIDO")
-public class Pedido implements Serializable {
+public class Pedido {
 
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-
-	private String id;
+	private long id;
 	private String cod_cliente;
 	private String cod_produtos;
 	private long valor_total;
 	private String endereco;
 
-	private String getId () {
-		return  id;
+	public Pedido() {
 	}
+	public Pedido(String cod_cliente,String cod_produtos,long valor_total,String endereco) {
+		this.cod_produtos=cod_produtos;
+		this.cod_cliente=cod_cliente;
+		this.valor_total=valor_total;
+		this.endereco=endereco;
+	}
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public long getId() {
+		return id;
+
+	}
+	@Column(name="cod_cliente", nullable=false)
 	private String getCod_cliente () {
 		return cod_cliente;
 	}
+	@Column(name="cod_produtos", nullable=false)
 	private String getCod_produtos () {
 		return cod_produtos;
 	}
+	@Column(name="endereco", nullable=false)
 	private String getEndereco () {
 		return endereco;
 	}
+	@Column(name="valor_total", nullable=false)
 	private long getValor_total () {
 		return valor_total;
 	}
 
-	public void setId (String id){
+	public void setId (long id){
 		this.id=id;
 	}
 	public void setCod_cliente (String cod_cliente){
