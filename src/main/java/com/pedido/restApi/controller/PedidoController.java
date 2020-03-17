@@ -23,16 +23,19 @@ import com.pedido.restApi.exception.ResourceNotFoundException;
 import com.pedido.restApi.models.Pedido;
 import com.pedido.restApi.repository.PedidoRepository;
 
+//aqui controlamos o h2, temos o localhost:porta/api/v1 como controlador principal rest
 @RestController
 @RequestMapping("/api/v1")
 public class PedidoController {
 	@Autowired
 	private PedidoRepository pedidoRepository;
 
+	//ja localhost:porta/api/v1/pedido get method encontra todos pedidos
 	@GetMapping("/pedido")
 	public List < Pedido > getAllPedidos() {
 		return pedidoRepository.findAll();
 	}
+	//ja localhost:porta/api/v1/{id} get method encontra informacoes de um pedido
 	@GetMapping("/pedido/{id}")
 	public ResponseEntity < Pedido > getPedidoById(@PathVariable(value = "id") Long pedidoId)
     throws ResourceNotFoundException {
@@ -40,10 +43,11 @@ public class PedidoController {
 			.orElseThrow(() -> new ResourceNotFoundException("Pedido not found for this id :: " + pedidoId));
 		return ResponseEntity.ok().body(pedido);
     }
-    @PostMapping("/pedido")
+    @PostMapping("/pedido")// postar um pedido e gerar seu id
     public Pedido createPedido(@Valid @RequestBody Pedido pedido) {
         return pedidoRepository.save(pedido);
     }
+    //alterar um pedido
     @PutMapping("/pedido/{id}")
     public ResponseEntity < Pedido > updatePedido(@PathVariable(value = "id") Long pedidoId,
         @Valid @RequestBody Pedido pedidoDetails) throws ResourceNotFoundException {
@@ -57,6 +61,7 @@ public class PedidoController {
         final Pedido updatedPedido = pedidoRepository.save(pedido);
         return ResponseEntity.ok(updatedPedido);
     }
+    //deletar pedidos
     @DeleteMapping("/pedidos/{id}")
     public Map < String, Boolean > deletepedido(@PathVariable(value = "id") Long pedidoId)
     throws ResourceNotFoundException {
