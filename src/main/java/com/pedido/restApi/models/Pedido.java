@@ -33,19 +33,19 @@ public class Pedido {
 
 	}
 	@Column(name="cod_cliente", nullable=false)
-	private String getCod_cliente () {
+	public String getCod_cliente () {
 		return cod_cliente;
 	}
 	@Column(name="cod_produtos", nullable=false)
-	private String getCod_produtos () {
+	public String getCod_produtos () {
 		return cod_produtos;
 	}
 	@Column(name="endereco", nullable=false)
-	private String getEndereco () {
+	public String getEndereco () {
 		return endereco;
 	}
 	@Column(name="valor_total", nullable=false)
-	private long getValor_total () {
+	public long getValor_total () {
 		return valor_total;
 	}
 
